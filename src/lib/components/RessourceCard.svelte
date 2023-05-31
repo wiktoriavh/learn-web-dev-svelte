@@ -1,15 +1,12 @@
 <script lang="ts">
 	import type { Ressource } from '$lib/types/Ressource';
 
-	export let difficulty: Pick<Ressource, 'difficulty'>;
-	export let title: Pick<Ressource, 'title'>;
-	export let link: Pick<Ressource, 'link'>;
-	export let isPickOne: Pick<Ressource, 'isPickOne'>;
-	export let type: Pick<Ressource, 'type'>;
+	export let resource: Ressource;
+	const { difficulty, title, link, isPickOne, type } = resource;
 </script>
 
 <article class="flex flex-col overflow-hidden rounded-xl text-black-900 bg-black-100">
-	<header class="bg-black-800 p-3 text-black-100">
+	<header class="p-3 bg-black-800 text-black-100">
 		<div class="flex items-center justify-between font-mono text-xs">
 			<span>
 				{type}
@@ -22,26 +19,26 @@
 	</header>
 
 	{#if isPickOne}
-		<main class="p-3 max-w-xs grid gap-3">
+		<main class="grid max-w-xs gap-3 p-3">
 			<slot />
 		</main>
 	{:else}
-		<main class="p-3 max-w-xs flex-1 gap-3">
+		<main class="flex-1 max-w-xs gap-3 p-3">
 			<slot />
 		</main>
 
-		<footer class="p-3 flex">
+		<footer class="flex p-3">
 			<a
 				href={link}
 				title="Go to ressource {title}"
 				target="_blank"
-				class="text-black-900 hover:text-black-800 w-full h-full flex underline underline-offset-2 justify-end gap-2 items-center rounded-xl p-2 group"
+				class="flex items-center justify-end w-full h-full gap-2 p-2 underline text-black-900 hover:text-black-800 underline-offset-2 rounded-xl group"
 			>
 				Go to Ressource <svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 20 20"
 					fill="currentColor"
-					class="h-5 w-5 mr-2 group-hover:mr-0 ease-in-out transition-all"
+					class="w-5 h-5 mr-2 transition-all ease-in-out group-hover:mr-0"
 				>
 					<path
 						fill-rule="evenodd"

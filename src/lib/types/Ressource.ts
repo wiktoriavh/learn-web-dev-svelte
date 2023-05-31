@@ -10,6 +10,7 @@ export type Ressource = {
 	title: string;
 	link?: string;
 	type: 'video' | 'article' | 'book' | 'course' | 'tool';
+	category: string;
 	isPickOne?: boolean;
 	description: Description;
 };

@@ -69,7 +69,7 @@ devDependencies:
     specifier: ^4.3.0
     version: 4.3.9(@types/node@20.2.5)
   vitest:
-    specifier: ^0.25.3
+    specifier: ^0.25.8
     version: 0.25.8
 
 packages:

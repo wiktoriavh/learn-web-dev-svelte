@@ -1,6 +1,6 @@
-import type { Ressource } from './Ressource';
+import type { Resource } from './Resource';
 
 export type Chapter = {
 	title: string;
-	ressources: Ressource[];
+	resources: Resource[];
 };

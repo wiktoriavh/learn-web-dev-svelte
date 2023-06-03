@@ -1,25 +1,37 @@
 <script lang="ts">
-	import RessourceCard from './RessourceCard.svelte';
+	import ResourceCard from './ResourceCard.svelte';
+	import type { Resource } from '$lib/types/Resource';
+	import PickOneCard from './PickOneCard.svelte';
+	import PickOneCardContent from './PickOneCardContent.svelte';
 	export let title: string;
-	export let ressources: {
-		difficulty: 'beginner' | 'intermediate' | 'advanced';
-		title: string;
-		description: string;
-		link: string;
-	}[];
+	export let resources: Resource[];
 </script>
 
 <section>
-	<h2>{title}</h2>
+	<h2 class="">{title}</h2>
 	<div class="grid grid-cols-4 gap-8">
-		{#each ressources as ressource}
-			<RessourceCard
-				difficulty={ressource.difficulty}
-				title={ressource.title}
-				link={ressource.link}
-			>
-				{ressource.description}
-			</RessourceCard>
+		{#each resources as resource}
+			{#if resource.isPickOne}
+				<PickOneCard difficulty={resource.difficulty} title={resource.title} type={resource.type}>
+					{#each resource.description as description}
+						<PickOneCardContent
+							title={description.title}
+							description={description.description}
+							link={description.link}
+						/>
+					{/each}
+				</PickOneCard>
+			{:else}
+				<ResourceCard
+					difficulty={resource.difficulty}
+					title={resource.title}
+					link={resource.link}
+					isPickOne={resource.isPickOne}
+					type={resource.type}
+				>
+					<p>{resource.description}</p>
+				</ResourceCard>
+			{/if}
 		{/each}
 	</div>
 </section>

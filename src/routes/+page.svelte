@@ -4,6 +4,8 @@
 	const test: ChapterType[] = [
 		{
 			title: 'Learn HTML',
+			description:
+				'Learn the basics of HTML5 and web development in this awesome course for beginners.',
 			resources: [
 				{
 					title: 'HTML Crash Course For Absolute Beginners',
@@ -64,6 +66,12 @@
 							description:
 								'Visual Studio Code is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.',
 							link: 'https://code.visualstudio.com/'
+						},
+						{
+							title: 'Visual Studio Code',
+							description:
+								'Visual Studio Code is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.',
+							link: 'https://code.visualstudio.com/'
 						}
 					],
 					difficulty: 'beginner',
@@ -87,6 +95,38 @@
 					difficulty: 'beginner',
 					type: 'video',
 					isPickOne: false
+				},
+				{
+					title: 'HTML Full Course - Build a Website Tutorial',
+					description: [
+						{
+							title: 'Visual Studio Code',
+							description:
+								'Visual Studio Code is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.',
+							link: 'https://code.visualstudio.com/'
+						},
+						{
+							title: 'Visual Studio Code',
+							description:
+								'Visual Studio Code is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.',
+							link: 'https://code.visualstudio.com/'
+						},
+						{
+							title: 'Visual Studio Code',
+							description:
+								'Visual Studio Code is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.',
+							link: 'https://code.visualstudio.com/'
+						},
+						{
+							title: 'Visual Studio Code',
+							description:
+								'Visual Studio Code is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.',
+							link: 'https://code.visualstudio.com/'
+						}
+					],
+					difficulty: 'beginner',
+					type: 'video',
+					isPickOne: true
 				}
 			]
 		}
@@ -103,6 +143,10 @@
 
 <section>
 	{#each test as chapter}
-		<Chapter title={chapter.title} resources={chapter.resources} />
+		<Chapter
+			title={chapter.title}
+			description={chapter.description}
+			resources={chapter.resources}
+		/>
 	{/each}
 </section>

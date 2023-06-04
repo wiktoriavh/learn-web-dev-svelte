@@ -1,38 +1,13 @@
-# create-svelte
+# Learn Web Development
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Learn Web Dev is a beginner-friendly web-based platform that provides guided learning paths for individuals starting their web development journey. With opinionated paths and redirection to relevant resources, users can confidently explore and learn at their own pace. The project incorporates chapter-based challenges to reinforce knowledge and offers a supportive discord server for new web developers eager to dive into the world of web development.
 
-## Creating a project
+## Contribution
 
-If you're seeing this, you've probably already done this step. Congrats!
+Contributions are highly encouraged and welcomed! To get started, please refer to the [project board to identify tasks that require attention](https://github.com/users/Braweria/projects/3).
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+To contribute, begin by forking the repository and creating a new branch with a descriptive name, incorporating the respective issue number. For instance, if you are addressing issue #1, your branch should be named `1-branch-name`. Once you have finished your work, submit a pull request to the `main` branch.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To ensure clarity, please prefix each branch name according to its purpose, such as `feat` for a feature, `fix` for a bug fix, `refactor` for a code refactor, or `chore` for general tasks. For commit messages, we follow the guidelines of [Conventional Commits](https://www.conventionalcommits.org/).
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+We appreciate your valuable contributions and look forward to collaborating with you!

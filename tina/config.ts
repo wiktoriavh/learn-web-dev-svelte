@@ -21,9 +21,9 @@ export default defineConfig({
 	schema: {
 		collections: [
 			{
-				name: 'post',
-				label: 'Posts',
-				path: 'content/posts',
+				name: 'challenge',
+				label: 'Challenges',
+				path: 'content/challenge',
 				fields: [
 					{
 						type: 'string',
@@ -37,45 +37,15 @@ export default defineConfig({
 						name: 'body',
 						label: 'Body',
 						isBody: true
+					},
+					{
+						type: 'string',
+						name: 'prerequisites',
+						label: 'Prerequisites',
+						list: true
 					}
-				]
+				],
 			},
-			{
-				name: 'resources',
-				label: 'Resources',
-				path: 'content/resources',
-				fields: [
-					{
-						type: 'string',
-						name: 'difficulty',
-						label: 'Difficulty'
-					},
-					{
-						type: 'string',
-						name: 'title',
-						label: 'Title',
-						isTitle: true,
-						required: true
-					},
-					{
-						type: 'string',
-						name: 'type',
-						label: 'Type'
-					},
-					{
-						type: 'string',
-						name: 'description',
-						label: 'Description',
-						isBody: true,
-						required: true
-					},
-					{
-						type: 'string',
-						name: 'link',
-						label: 'Link'
-					}
-				]
-			}
 		]
 	}
 });

@@ -48,6 +48,7 @@ export default defineConfig({
 						type: 'string',
 						name: 'tags',
 						label: 'Tags',
+						list: true,
 						options: ['html', 'css', 'javascript']
 					},
 					{

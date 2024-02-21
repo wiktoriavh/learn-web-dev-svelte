@@ -43,7 +43,18 @@ export default defineConfig({
 						name: 'prerequisites',
 						label: 'Prerequisites',
 						list: true
-					}
+					},
+					{
+						type: 'string',
+						name: 'tags',
+						label: 'Tags',
+						options: ['html', 'css', 'javascript']
+					},
+					{
+						type: 'number',
+						name: 'id',
+						label: 'Post ID',
+					},
 				],
 			},
 		]

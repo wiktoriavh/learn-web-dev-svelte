@@ -1,11 +1,15 @@
-<script>
-  export let data;
-  console.log(data);
+<script lang="ts">
+	import type { PageData } from './$types';
+	import type { Post } from './+page';
+
+	export let data: PageData;
+	let posts: Post[] = data.posts;
 </script>
 
-<article>
-  <h1>hello</h1>
-{#each data.challenges as challenge}
-  <li><a href={`/challenge/${challenge}`}> {challenge} </a></li>
-{/each}
-</article>
+<div class="space-y-4 mb-4">
+	<ul>
+		{#each posts as post (post.title)}
+			<li><a href={`/challenge/${post.slug}`}>{post.title}</a></li>
+		{/each}
+	</ul>
+</div>

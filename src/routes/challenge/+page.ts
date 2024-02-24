@@ -1,16 +1,31 @@
-import { cwd } from 'process';
-import { readdirSync } from 'fs';
+import type { PageLoad } from './$types';
 
-const __root = cwd();
+export type Post = {
+	title: string;
+	prerequisites: string[];
+	slug: string;
+	description: string;
+	id: number;
+};
 
-export async function load() {
-  const directoryPath = `${__root}/content/challenge`;
+export const load = (async () => {
+	const modules = import.meta.glob('/src/content/challenge/*.{md,svx}');
 
-  const filenames = readdirSync(directoryPath).map(filename => filename.replace(/\.[^/.]+$/, ''));
+	const postPromise = Object.values(modules).map(async (mod) => {
+		const post = (await mod()) as {
+			metadata: { title: string; prerequisites: string[]; description: string; id: number };
+		};
 
-  console.log(filenames);
+		return {
+			title: post.metadata.title,
+			prerequisites: post.metadata.prerequisites,
+			slug: post.metadata.title.toLowerCase().replace(/ /g, '-'),
+			description: post.metadata.description,
+			id: post.metadata.id
+		} as Post;
+	});
 
-  return {
-    challenges: filenames // Replace with parsed date
-  };
-}
+	const posts = await Promise.all(postPromise);
+
+	return { posts };
+}) satisfies PageLoad;

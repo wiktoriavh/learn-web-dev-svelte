@@ -1,17 +1,26 @@
-import { cwd } from 'process';
+import type { PageLoad } from './$types';
 
-const __root = cwd();
+const getSlugFromPath = (path: string) => {
+	console.log('path', path);
+	return path.match(/([^/]*)\.(md|svx)/)?.[1] ?? null;
+};
 
-export async function load({ params }: { params: { slug: string } }) {
-	const data = await import(`${__root}/content/challenge/${params.slug}.md`);
+export const load = (async ({ params }) => {
+	const modules = import.meta.glob(`/src/content/challenge/*.{md,svx}`);
 
-	console.log(data.metadata, data.default);
+console.log('modules', Object.entries(modules).find(([path]) => getSlugFromPath(path) === params.slug));
 
-	// You'll need to parse the markdown content and metadata here
-	// This depends on the structure of your markdown files
+	const match = Object.entries(modules).find(([path]) => getSlugFromPath(path) === params.slug); // boolean true or false
+
+	if (!match) {
+		return;
+	}
+
+	const [_path, module] = match;
+	const post = await module();
 
 	return {
-		content: data.default, // Replace with parsed content
-		...data.metadata // Replace with parsed date
+		component: post.default,
+		frontmatter: post.metadata
 	};
-}
+}) satisfies PageLoad;

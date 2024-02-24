@@ -74,9 +74,7 @@
 			<p class="text-sm text-light-grey">
 				&copy; {new Date().getFullYear()}
 			</p>
-			<a href="/privacy" class="text-light-red hover:underline-offset-4 hover:underline text-sm">
-				Privacy
-			</a>
+
 		</div>
 	</div>
 </footer>
